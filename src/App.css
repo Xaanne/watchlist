@@ -1,20 +1,42 @@
+:root{
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
 body{
   background-color: rgb(25, 25, 25);
 }
 
-.mana{
-  /* background-color: seagreen; */
-  height: 10rem;
-
-  padding: .3rem;
-  float: left;
-  margin-top: 1rem;
-  margin-left: 1rem;
+.container{
+  /* background-color: cadetblue; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem .5rem;
 }
 
-.manaInfo.hidden{
-  width: 0;
-  background-color: transparent;
+.mana{
+  /* background-color: black; */
+  padding: .3rem;
+  display: grid;
+  grid-template-columns: 3.75rem .75rem 3rem 16.25rem;
+  grid-template-rows: 10rem;
+  grid-template-areas: 
+    "image imageM imageE info";
+  transition: 1.2s;
+}
+
+.manaInfo.hidden {
+  width: .75rem;
+  grid-column: 2 / 3;
+  opacity: .1;
+  transition: 1.2s;
+}
+
+.mana:has(.manaInfo.hidden){
+  transition: 1.2s;
+  grid-template-columns: 3.75rem .75rem 3rem 0rem;
 }
 
 .manaInfo.hidden p{
@@ -23,28 +45,38 @@ body{
 }
 
 .manaInfo{
-  background-color: rgba(46, 142, 201, 0.5);
+  grid-column: 2 / 5;
+  grid-row: 1;
+  /* background-color: rgba(120, 176, 255, 0.5); */
   height: 100%;
-  width: 18.8rem;
-  float: right;
-  margin-left: -6rem;
+  width: 20rem;
   border-radius: .5rem;
   overflow: hidden;
   color: white;
-  transition: 1s;
+  transition: 1.2s;
+}
+
+.infoText{
+  position: relative;
+  height: 100%;
+  top: -1rem;
+  padding-left: 4.5rem;
+  /* background-color: aquamarine; */
 }
 
 .infoText p{
   transition: .2s;
-  transition-delay: .6s;
+  transition-delay: .8s;
   font-family: Dosis;
   margin: 0;
+  z-index: 0;
 }
 
 .infoTitle{
   font-family: Rubik;
-  margin-top: -.5rem;
   font-weight: 500;
+
+  padding-top: .5rem;
   width: 100%;
   height: 3.585rem;
   font-size: 1.5rem;
@@ -58,21 +90,49 @@ body{
 }
 
 .Two{
-  /* background-color: rgb(150, 32, 17); */
+  /* background-color: rgba(157, 247, 255, 0.5); */
   /* padding-left: .2rem; */
   font-size: 1.3rem;
   height: 1.5rem;
   margin-top: 0;
 }
 
+.infoAbout{
+  /* background-color: blueviolet; */
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
 .infoGenre{
   font-weight: 300;
   font-size: 1.2rem;
-  margin-top: .2rem;
+  padding-top: .1rem;
   padding-left: .5rem;
-  /* color: rgb(109, 151, 181); */
-  color: rgb(108, 161, 199);
+  color: rgb(123, 189, 255);
   font-weight: 200;
+}
+
+.infoCountry{
+  font-weight: 300;
+  font-size: 1.2rem;
+  padding-top: .1rem;
+  padding-left: .5rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 200;
+}
+
+.infoFlag {
+ height: 1.3rem;
+ filter: invert(100%);
+ opacity: .5;
+}
+
+.infoLenght{
+  /* background-color: blueviolet; */
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .header{
@@ -88,18 +148,16 @@ body{
 .infoHeader{
   padding-top: .5rem;
   color: rgba(255, 255, 255, 0.75);
-}
-
-.infoText{
-  padding-left: 6.25rem
+  float: left;
 }
 
 .imageScale{
-  /* background-color: coral; */
+  grid-column: 1 / 4;
+  grid-row: 1;
+  /* opacity: .5; */
   height: 100%;
-  width: 7.5rem;
-  float: left;
-  text-align: center;
+  place-self: center;
+  z-index: 0;
 }
 
 .imageScale img{
