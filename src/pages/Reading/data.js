@@ -214,6 +214,16 @@ const toons = [
   Season: '2',
   imageId: 'jVuSuA8',
   color: ''
-},];
+},{
+  id: 23,
+  title: 'Till we Meet Again my King',
+  Country: 'CN',
+  Genre: 'BL',
+  Status: 'Ongoing',
+  Season: '2',
+  imageId: 'UywgPZf',
+  color: 'indigo'
+},
+];
 
 export const webtoons = toons.sort((a,b) => a.title.localeCompare(b.title));
